@@ -1,0 +1,128 @@
+-----------------------------
+   TrackMyWork - Changelog
+-----------------------------
+1.0.25:
+- Handling of import and export improved
+- Ringer switch gets respected now
+
+1.0.24:
+- Notes in statistic-mail
+
+1.0.23:
+- Bugfix: Correct display, when tapping on a list entry
+- Bugfix: Import-Problem fixed, when note contains a comma
+- Extended FAQ
+
+1.0.22:
+- Help text for preferences
+
+1.0.21:
+- Bugfix: Preferences work again
+
+1.0.20:
+- Category selection for statistics
+- Display the calendar week in weekly overview
+- Notification for Updates
+
+1.0.19:
+- Category selection: design improvements
+- Category selection for exporting data
+- Category selection for deleting data
+
+1.0.18:
+- Calculating a daily sum
+- Ringtone & vibrate for notifications
+
+1.0.17:
+- WebOS 2.0 ready
+- Check in-/out also possible, when phone is locked
+
+1.0.16:
+- Send statistics as mail
+- Use menu-buttons in statistic view
+
+1.0.15:
+- Automatically check out and in, when checked in, and category was changed
+- Check in/out also from day view
+ 
+1.0.14:
+- New symbols for check in and out
+
+1.0.13:
+- Additional informations for dashboard
+- Check in/out as symbols
+- FAQ Help page
+- Back gesture moves app to Dashboard (full version)
+- Date label in statistics formatted depending on locale (full version)
+- Flick-gesture (left or right) goes to last or next week
+            
+1.0.12:
+- Bugfix: Category Filter activated
+
+1.0.11:
+- New category filter
+
+1.0.10:
+- Notifications for Check in and out
+- Show changelog in help screen
+- Optical improvements in category selector
+
+1.0.9:
+- New icons and design
+- New help page
+
+1.0.8:
+- Directly jump to date
+
+1.0.7:
+- Changelog viewer
+- Automatic calculated breaks
+
+1.0.6:
+- Layout improvements
+- Midnight shift entries can be entered or altered later
+- Note can be longer then 30 chars
+
+1.0.5:
+- Help pages added
+- Bugfix: Entries that were not checked out get imported correctly
+
+1.0.4:
+- Date-Selection for Import/Export/Cleanup
+- Timezone-Bugfix
+- New Contact-Button
+- Graphical rendering of statistics
+- Export-End date is now jan, 1st next year
+
+1.0.0:
+- First Upload to the App catalog
+
+0.2.3:
+- Bugfix: Timezone-Conflict between localtime and UTC fixed
+
+0.2.2:
+- Bugfix: Sometimes data was ignored, when start was
+  shortly after midnight
+- Time checks only when submitting an entry
+
+0.2.1:
+- prevent categories in use from deletion
+- Bugfix: Category delete works again
+
+0.2.0:
+- Renamed Projects to categories
+- Categories filter
+- Time carry for night-shifts
+- Setup of minute interval for time pickers
+
+0.1.2:
+- Set start of week as a preference
+- Cosmetic changes
+
+0.1.1:
+- Entries, which are not checked out, can be edited
+- Default worktime can be selected in 1 minute steps
+- Renamed to TrackMyWork
+- Edit entry, when a day wrap was detected on checkout
+
+0.1.0: Initial version

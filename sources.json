@@ -1,0 +1,67 @@
+[
+    {"source": "app/assistants/app-assistant.js"},
+    {"source": "app/assistants/stage-assistant.js"},
+    {"source": "app/models/tmwDatabase.js"},
+    {"source": "app/models/tmwPrefs.js"},
+    {"source": "app/models/tmwTimeout.js"},
+    {"source": "app/models/tmwTools.js"},
+    {"source": "app/assistants/DatePicker-assistant.js"},
+    {
+        "scenes": "WeekView",
+        "source": "app/assistants/WeekView-assistant.js"
+    },
+    {
+        "scenes": "DayView",
+        "source": "app/assistants/DayView-assistant.js"
+    },
+    {
+        "scenes": "TimeView",
+        "source": "app/assistants/TimeView-assistant.js"
+    },
+    {
+        "scenes": "Prefs",
+        "source": "app/assistants/Prefs-assistant.js"
+    },
+    {
+        "scenes": "CategoryView",
+        "source": "app/assistants/CategoryView-assistant.js"
+    },
+    {
+        "scenes": "Export",
+        "source": "app/assistants/Export-assistant.js"
+    },
+    {
+        "scenes": "Statistics",
+        "source": "app/assistants/Statistics-assistant.js"
+    },
+    {
+        "scenes": "StatGraph",
+        "source": "app/assistants/StatGraph-assistant.js"
+    },
+    {
+        "scenes": "Changelog",
+        "source": "app/assistants/Changelog-assistant.js"
+    },
+    {
+        "scenes": "Help",
+        "source": "app/assistants/Help-assistant.js"
+    },
+    {
+        "scenes": "Dashboard",
+        "source": "app/assistants/dashboard-assistant.js"
+    },
+    {
+        "scenes": "CategorySelect",
+        "source": "app/assistants/CategorySelect-assistant.js"
+    },
+    {
+        "scenes": "HelpFAQ",
+        "source": "app/assistants/HelpFAQ-assistant.js"
+    },
+    {"source": "app/models/metrix.js"},
+    {"source": "app/models/asyncWrappers.js"},
+    {
+        "scenes": "DockMode",
+        "source": "app/assistants/DockMode-assistant.js"
+    }
+]

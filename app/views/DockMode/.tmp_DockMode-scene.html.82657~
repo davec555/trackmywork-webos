@@ -1,0 +1,29 @@
+<meta name='viewport' content='height=device-height'/>
+<head>
+    <style type="text/css">
+        
+        body.palm-default {
+            background-color: green;
+            color: white;
+        }
+        
+        body {
+            background-color:green;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div id='scene' height='1024' width='1024'>
+    <br/>
+    <br/>
+    <br/>
+    <span id="checkInOut" class="#{checkInOutClass}"></span>
+    <br/>
+    <div id="content"></div>
+    <br/>
+    <br/>
+    <br/>
+    </div>
+</body>

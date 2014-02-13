@@ -1,0 +1,39 @@
+Englisch:
+
+Primary App Description:
+
+Available in: English, German.
+TrackMyWork is a time tracker for collecting your working hours. You can check in and out per day as often as you want. The working time gets summarized per day and week. Entries can also be added, altered and deleted manually. Different categories (for example working time, free time, holidays, etc.) can also be assigned, as well as a short description per entry. Night shifts are supported. Data can be imported, exported and cleared (also by date range). Working hours can be summarized by year, month, week and days and can be rendered graphically.
+**** NEW: 
+Graphical rendering of statistics - partial import, export and cleanup - simple contact button - timezones bugfix 
+****
+
+50 Word Description:
+
+
+
+
+25 Word Description:
+
+Collection of working-time in a simple and clear way. Statistics and graphical rendering of working time. 
+
+
+Deutsch:
+
+Primary App Description:
+
+TrackMyWork verschafft einen Überblick über die geleistete Arbeitszeit. Über eine einfache Ein- / Ausbuchungsfunktion kann die tägliche Arbeitszeit direkt erfasst werden. Auch Nachtschichten, die Mitternacht überschreiten werden unterstützt. Selbstverständlich ist auch eine nachträgliche Korrektur möglich. Die erfassten Daten können verschiedenen Kategorien zugeordnet werden. Ein Import und Export der Daten ist möglich. Erstellung von jährlichen, monatlichen, wöchentlichen und täglichen Statistiken. 
+
+**** NEU: 
+Grafische Darstellung der statistischen Daten - Import, Export und Löschung der Daten eines bestimmten Zeitraumes - einfache Kontaktmöglichkeit - Zeitzonen Korrektur
+***
+
+
+50 Word Description:
+
+
+
+
+25 Word Description:
+
+Einfache und übersichtliche Erfassung der Arbeitszeit mit statistischer und grafischer Auswertungsmöglichkeit.

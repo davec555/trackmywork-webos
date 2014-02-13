@@ -1,0 +1,34 @@
+<html style="background-color: black; foreground-color: white">
+    
+<head>
+<style type="text/css">
+
+body {
+    background-color:black;
+    color: white;
+}
+
+.dock_app_icon {
+    position:absolute;
+    left:30px;
+    top:30px;
+    width:50px; 
+    height:50px;
+    background: url(../icon.png) no-repeat center ;
+}
+
+</style>
+</head>
+<body>
+   
+    <div id="btnCheckInOrOut" class='dock_app_icon'></div>
+    <br/>
+    <br/>
+    <div id="category">Category: XXXXXXX</div>
+    <br/>
+    <br/>
+    <div id="textCheckInOrOut">Checked in since XXXXXX</div>
+    
+</body>
+
+</html>

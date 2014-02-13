@@ -1,0 +1,533 @@
+/* Put Application specific CSS here. */
+
+body.palm-default {
+	background-color: #D2E5FC;
+}
+
+.palm-group {                             
+  -webkit-border-image: url(../images/palm-group.png) 40 18 18 18 repeat repeat;
+}
+
+.palm-group-title
+{
+	text-align:	center;	
+}
+
+.palm-row
+{
+	min-height: 40px;
+}
+ 
+.time-row
+{
+	padding-top:	2px; 
+	padding-bottom: 2px; 
+	/* min-height:		48px; */
+}
+ 
+.palm-row.today
+{
+	background-image: url("../images/bg_row_today.png");
+	background-repeat: repeat-x;
+	color:#000000;
+}
+
+
+.img-in {
+    background-image: url(../images/in.png);
+}
+
+
+.img-out {
+    background-image: url(../images/out.png);
+}
+
+
+.img-graph {
+    background-image: url(../images/graph.png);
+}
+
+
+.categories-list.noDelete
+{
+	color:		#636363;
+}
+
+
+.tmw-list
+{
+	padding-top:	0px; 
+	padding-bottom: 0px; 
+}
+
+
+.tmw-list .date
+{
+    position:   relative;
+    top:        -1px;
+	float:	    left;
+	width: 		22%; 
+	text-align:	right;
+	font-size:	18px;
+	color:		#636363;
+    // background-color: #111111;
+}
+
+.tmw-list .date.ampm
+{
+    position:   relative;
+    top:        -1px;
+    float:      left;
+	left:		0px;
+    font-size:  16px;
+	width: 		18%; 
+}
+
+.tmw-list .start
+{
+    position:   relative;
+    top:        -1px;
+	float:	    left;
+	width:		28%; 
+	text-align:	right;
+	font-size:	18px;
+	color:		#636363;
+}
+
+.tmw-list .start.ampm
+{
+    position:   relative;
+    top:        -1px;
+    float:      left;
+	width:		29%;
+	font-size:	15px;
+}
+
+.tmw-list .end
+{
+    position:   relative;
+    top:        -1px;
+    float:      left;
+	width:		28%; 
+	text-align:	right;
+	font-size:	18px;
+	color:		#636363;
+}
+
+.tmw-list .end.ampm
+{
+    position:   relative;
+    top:        -1px;
+    float:      left;
+    width:      29%;
+	font-size:	15px;
+}
+
+
+.tmw-list .end.in
+{
+    position:   relative;
+    top:        -1px;
+    float:      left;
+	color:	#c4000b
+}
+
+.tmw-list .result
+{
+    position:   relative;
+    top:        -1px;
+    float:      left;
+	width:		20%; // 60px;
+	text-align:	right;
+	font-size:	20px;
+	color:		#636363;
+    // background-color: #444444;
+}
+
+.tmw-list .result.ampm
+{
+    position:   relative;
+    top:        -1px;
+    float:      left;
+	width:		20%;
+}
+
+
+.tmw-list .result.in
+{
+    position:   relative;
+    top:        -1px;
+    float:      left;
+	color:	#c4000b
+}
+
+.tmw-list .categoryName
+{
+    position:   relative;
+    top:        -5px;
+    float:      right;
+    width:      90%; //300px;
+    text-align: center;
+    font-size:  11px;
+    
+    color:      #1f75bf;
+    text-transform: uppercase;
+    // background-color: #555555;
+}
+
+
+
+.tmw-categories
+{
+	height: 		60px; 
+}
+
+
+.palm-row-wrapper .category-name
+{
+	position:		relative;
+	padding-top:	15px; 
+	padding-bottom:	5px; 
+	left:			10px;
+	height:         30px;
+	width: 			180px;
+	text-align:		left;
+	font-size:		20px;
+}
+
+
+.palm-row-wrapper .checkbox
+{
+	position:   absolute;
+	left:		250px;
+	width: 		40px;
+}
+
+.tmw-statistics
+{
+	padding-top:	2px; 
+	padding-bottom: 2px; 
+}
+
+
+.tmw-statistics .date
+{
+	position:	relative;
+    top:        -1px;
+    float:      left;
+	width: 		22%;
+	text-align:	right;
+	font-size:	18px;
+	color:		#636363;
+}
+
+
+
+.tmw-statistics .days
+{
+	position:	relative;
+    float:      left;
+	width:		12%;
+	text-align:	right;
+	font-size:	14px;
+	color:		#636363;
+}
+
+.tmw-statistics .avgPerDay
+{
+	position:	relative;
+    float:      left;
+	width:		18%;
+	text-align:	right;
+	font-size:	14px;
+	color:		#636363;
+}
+
+.tmw-statistics .avgPerWeek
+{
+	position:	relative;
+    float:      left;
+	width:		18%;
+	text-align:	right;
+	font-size:	14px;
+	color:		#636363;
+}
+
+.tmw-statistics .result
+{
+	position:	relative;
+	float:      left;
+	width:		25%;
+	text-align:	right;
+	font-size:	18px;
+	color:		#636363;
+}
+
+
+
+
+.tmw-statistics .categoryName
+{
+	position:	absolute;
+	left: 		10px;
+	width: 		220px;
+	top: 		22px;
+	text-align:	center;
+	font-size:	11px;
+	
+  	color: 		#1f75bf;
+  	text-transform: uppercase;
+}
+
+
+.tmw-statistics .note
+{
+    position:       relative;
+    top:            -1px;
+    float:          right;
+    width:          90%;
+//    height:         14px;
+//    top:            22px;
+    text-align:     center;
+    text-overflow:  ellipsis;
+    overflow:       auto;
+    font-size:      11px;
+    color:          #1f75bf;
+
+    text-transform: uppercase;
+}
+
+
+
+.day-list
+{
+	// position:		absolute;
+}
+
+.day-list .start
+{
+	float:      left;
+	width:		37%;
+	text-align:	right;
+	font-size:	18px;
+	color:		#636363;
+}
+
+.day-list .end
+{
+    float:      left;
+	width:		37%;
+	text-align:	right;
+	font-size:	18px;
+	color:		#636363;
+}
+
+	
+.day-list .result
+{
+    float:      left;
+	width:		24%;
+	text-align:	right;
+	font-size:	20px;
+	color:		#636363;
+}
+
+.day-list .end.in
+{
+	color:	#c4000b
+}
+
+
+.day-list .result.in
+{
+	color:	#c4000b
+}
+
+
+.day-list .categoryName
+{
+    position:   relative;    
+    top:        -5px;
+    float:      right;
+    width:      90%; //300px;
+    text-align: center;
+	font-size:	11px;
+	
+  	color: 		#1f75bf;
+  	text-transform: uppercase;
+
+}
+
+
+
+.tmw-label {
+	position:		relative;
+	top:            15px;
+	left: 			10px;
+    color: 			#1f75bf;
+    text-shadow: 	#ffffff 0px 1px 0px;
+    font-size: 		14px;
+    text-transform: uppercase;
+}
+
+
+.tmw-toggle-label {
+    position:       relative;
+    left:           12px;
+    width:          170px; 
+    top:            15px;
+    color:          #1f75bf;
+    text-shadow:    #ffffff 0px 1px 0px;
+    font-size:      14px;
+    text-transform: uppercase;
+}
+
+.tmw-toggle-label2 {
+    position:       relative;
+    left:           12px;
+    width:          170px; 
+    top:            6px;
+    color:          #1f75bf;
+    text-shadow:    #ffffff 0px 1px 0px;
+    font-size:      14px;
+    text-transform: uppercase;
+}
+
+.tmw-small-label
+{
+	text-align:	left;
+	font-size:	14px;
+}
+
+
+.tmw-small-label-centered
+{
+	text-align:	left;
+	font-size:	14px;
+	text-align: center;
+}
+
+
+.tmw-helptext
+{
+	font-size:		14px;
+}
+
+.tmw-import-input
+{
+	font-size:		14px;
+	text-align:		left;
+	background: 	#ffffff;
+}
+
+.help-img {
+        width:32px;
+        height:32px;
+        background: url(../images/help-out.png) center left no-repeat;
+}
+
+.help-img:active {
+        width:32px;
+        height:32px;
+        background: url(../images/help-in.png) center left no-repeat;
+}
+
+
+
+.textFieldClass
+{
+    padding:        0px;
+    min-height:     20px;
+    max-height:     20px;
+    font-size:      10px;/*
+
+    background:     white;
+*/
+}
+
+.textFieldClass:focus
+{
+    padding:        0px;
+    min-height:     20px;
+    max-height:     20px;
+    font-size:      10px;/*
+
+    background:     white;
+*/
+}
+
+.hint-text
+{
+    padding:        10px;
+    font-size:      14px;
+    width:          80%;
+    /*
+background:     white;
+*/
+}
+
+.multiline-hint-text
+{
+    font-size:      14px;
+    width:          80%;
+/*
+    background:     white;
+*/
+}
+
+                                 
+/*This allows you to place a radio button in a palm group correctly*/
+.palm-radiobutton {
+  min-width: 0px;            
+  display: -webkit-box;   
+}                                 
+ 
+.palm-radiobutton div {
+        float: none;
+  -webkit-box-flex: 1;
+}                  
+ 
+ 
+.tmw-text {
+    padding: 10px 10px 10px 10px;
+    font-size: 12px;
+}
+
+.tmw-text h3
+{
+    font-size: 18px;
+    color: #0000aa;
+}
+
+.tmw-text li {
+    font-size: 16px;
+    color: #000055;
+}
+
+.tmw-text p {
+    font-size: 14px;
+    color: #000000;
+}
+
+
+
+
+.dock-img-out {
+    position:   relative;
+    float:      left;
+    left:       25%;
+    width:      50%; 
+    height:     100px;
+    padding:    0px 0px 0px 0px;
+    background: url(../images/out-100.png) no-repeat center;
+}
+
+.dock-img-in {
+    position:   relative;
+    float:      left;
+    left:       25%;
+    width:      50%; 
+    height:     100px;
+    padding:    0px 0px 0px 0px;
+    background: url(../images/in-100.png) no-repeat center;
+}

@@ -1,0 +1,46 @@
+<div class="palm-page-header" >
+	<div class="palm-header center">
+		<span x-mojo-loc="" id="header"></span>
+	</div>
+</div>
+
+<div class="palm-group" id="groupEdit">
+	<div class="palm-group-title" id="title"></div>
+	<div class="palm-list>">
+		<div class="xpalm-row first" x-mojo-tap-highlight="momentary">
+			<div id="startDay" class="tmw-small-label"></div>
+			<div class="palm-row-wrapper">
+				<div id="startTime" x-mojo-element="TimePicker" class="label"></div>
+			</div>
+			
+		</div>
+		
+		<div class="xpalm-row" x-mojo-tap-highlight="momentary">
+			<div id="endDay" class="tmw-small-label"></div>
+			<div class="palm-row-wrapper">
+				<div id="endTime" x-mojo-element="TimePicker" class="label"></div>
+			</div>
+		</div>
+		
+		<div class="palm-row single" x-mojo-tap-highlight="none">
+			<div class="palm-row-wrapper">
+				<div id="category" x-mojo-element="ListSelector">&nbsp</div>  
+			</div>
+		</div>
+		
+		<div class="xpalm-row last" x-mojo-tap-highlight="momentary">
+			<div class="palm-row-wrapper">
+				<div class="textfield-group" x-mojo-focus-highlight="true">
+					<div class="title"> 
+						<div id="noteLabel" class="label">&nbsp;</div>
+						<div id="note" 
+							x-mojo-element="TextField"></div>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</div>
+</div>
+
+<div x-mojo-element="Button" id="saveBtn"></div>
+<div x-mojo-element="Button" id="stdDayBtn"></div>

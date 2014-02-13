@@ -1,0 +1,101 @@
+
+.palm-menu.command-menu.palm-default > .palm-menu-fade,
+.command-menu .palm-menu-fade {
+	background: transparent;
+}
+
+
+.dashboard-notification-module {
+	background-color: black;
+	overflow-y: hidden;
+}
+
+.dashboardinfo {
+	background-color: black;
+	max-height: 52px;
+	overflow-y: hidden;
+}
+
+.dashboard-notification-module .palm-dashboard-app-container {
+  position: absolute;
+  background-color: black;
+  left: 0px;
+  width: 52px;
+  z-index: 2;
+}
+
+.dashboard-img-app {
+    /*
+	float:left;	
+	*/
+	position:absolute;
+	left:2px;
+	top:0px;
+	width:48px; 
+	height:48px;
+	padding: 0px 0px 0px 0px;
+	background: url(../icon.png) no-repeat center;
+}
+
+
+.dashboard-notification-module .palm-dashboard-text-container {
+  position: absolute;
+  left: 55px;
+  width: 210px;
+  z-index: 2;
+}
+
+
+.dashboard-text {
+    position:      absolute;
+    left:          0px;
+    top:           9px;
+    color:         white;
+    font-size:     12px;
+    white-space:   nowrap;
+    overflow:      visible;
+    text-overflow: ellipsis;
+}
+
+
+.dashboard-notification-module .palm-dashboard-control-container {
+  position: absolute;
+  left: 268px;
+  width: 52px;
+  z-index: 2;
+}
+
+.dashboard-img-out {
+    position:absolute;
+    left:2px;
+    top:0px;
+    width:48px; 
+    height:48px;
+    padding: 0px 0px 0px 0px;
+    float:left; 
+	background: url(../images/out.png) no-repeat center;
+}
+
+.dashboard-img-in {
+    position:absolute;
+    left:2px;
+    top:0px;
+    width:48px; 
+    height:48px;
+    padding: 0px 0px 0px 0px;
+    float:left; 
+	background: url(../images/in.png) no-repeat center;
+}
+
+
+.dashboard-img-inout {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:48px; 
+    height:48px;
+    padding: 0px 0px 0px 0px;
+    float:left; 
+    background: url(../images/none.png) no-repeat center;
+}
+

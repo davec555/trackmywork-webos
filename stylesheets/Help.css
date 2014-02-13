@@ -1,0 +1,68 @@
+
+.app_icon {
+	position:absolute;
+	left:10px;
+	top:7px;
+	width:30px; 
+	height:30px;
+	background: url(../icon.png) no-repeat center ;
+/*	padding: 10px 0px 0px 5px; */
+	padding: 8px 0px 0px 5px;
+	float:left;	
+}
+
+.list_scene {
+	position:relative;
+	left:48px;
+	top:10px;
+	width:32px; 
+	height:32px;
+	vertical-align:bottom;
+	padding: 0px 0px 0px 5px;
+	float:left;
+}
+
+.img_email {
+	position:relative;
+	left:8px;
+	top:10px;
+	width:32px; 
+	height:32px;
+	background: url(../images/email.png) no-repeat bottom;
+	vertical-align:bottom;
+	padding: 0px 0px 0px 5px;
+	float:left;
+}
+
+.img_web {
+	position:relative;
+	left:8px;
+	top:10px;
+	width:32px; 
+	height:32px;
+	background: url(../images/web.png) no-repeat  bottom;
+	padding: 0px 0px 0px 5px;
+	float:left;
+}
+
+.img_app {
+	position:relative;
+	left:8px;
+	top:10px;
+	width:32px; 
+	height:32px;
+	background: url(../images/app-catalog.png) no-repeat  bottom;
+	padding: 0px 0px 0px 5px;
+	float:left;
+}
+
+.img_scene {
+	position:relative;
+	left:8px;
+	top:10px;
+	width:32px; 
+	height:32px;
+	background: url(../images/scene.png) no-repeat  bottom;
+	padding: 0px 0px 0px 5px;
+	float:left;
+}

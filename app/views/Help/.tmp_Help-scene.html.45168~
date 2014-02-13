@@ -1,0 +1,32 @@
+<div class="palm-page-header">
+	<div class="palm-page-header-wrapper">
+		<div id="icon" class="app_icon"></div>
+		<div id="pageTitle" class="title"></div>
+	</div>
+</div>
+
+<div class="palm-text-wrapper">
+    <div class="title left" id="appName"></div>
+	<div class="palm-body-text" id="appInfo"></div>
+</div>
+
+<div class="palm-group">
+	<div class="palm-group-title" id="supportTitle"></div>
+	<div class="palm-list" id="supportList" x-mojo-element="List">
+	</div>
+</div>
+
+<div class="palm-group">
+	<div class="palm-group-title" id="seeAlsoTitle"></div>
+	<div class="palm-list" id="seeAlsoList" x-mojo-element="List">
+	</div>
+</div>
+
+
+<div class="palm-group">
+	<div class="palm-group-title" id="contribTitle"></div>
+	<div class="palm-list" id="contribList" x-mojo-element="List">
+	</div>
+</div>
+
+<div class="palm-body-text" id="copyright"></div>

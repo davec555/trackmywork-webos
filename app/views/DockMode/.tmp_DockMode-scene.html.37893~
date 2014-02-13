@@ -1,0 +1,26 @@
+<meta name='viewport' content='height=device-height'/>
+<body>
+    <div id='scene' height='1280' width='1024'>
+        <br/>
+        <br/>
+        <br/>
+        <span id="checkInOut" class="#{checkInOutClass}"></span>
+        <br/>
+        <div id="content"></div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+    </div>
+</body>

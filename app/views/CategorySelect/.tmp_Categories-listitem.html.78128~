@@ -1,0 +1,7 @@
+<div class='palm-row' x-mojo-touch-feedback='momentary'>
+	<div class='palm-row-wrapper'>
+		<div name="checkbox" x-mojo-element="CheckBox" class="left"></div>
+		<div class="category-name"> #{name} </div>		
+	</div>
+</div>
+ 

@@ -1,0 +1,113 @@
+TODO for TrackMyWork
+
+--------------------------------------------------------------------------------
+TODO:
+--------------------------------------------------------------------------------
+
+* NEXT: 
+  - Switch off autorotation
+  - Would like to see more room to write in the notes section
+  - Generate notifications only on Workdays
+  - TP-Screenshots in Portrait mode
+  
+- FAQ:
+  - Categories for statistics
+  - Enter minutes exactly
+
+- BUG: show database errors
+
+- Help
+  - HTML Help pages
+  - FAQ-Page
+    - Category filter
+    - Gestures
+
+- Filter for entered Text
+- Fix memory leaks
+- Categories for statistics
+- Select import file by file-selector    
+- Statistics / Graphic
+  - Select categories for statistics 
+  - Separate categories  
+  - Paycheck calculator
+    - Mark settled payments
+  - Export statistics 
+    - Summary information
+  - Send graphic by mail
+  - Graphic for every category
+
+- EditEntry
+  - Split tmw-entry
+  - Join tmw-entries
+  - Duplicate tmw-entry
+  - Check out and then in on already entered Data
+    (Insert record for whole day and then check out and in for lunch)
+  - If the time start time of a subsequent task is altered, automatically -
+    or as an option - modify the end time of the preceeding task.  
+    Conversely, if the end time of a preceeding task is modified, the start
+    task of the subsequent task adjusts automatically
+- Help-Button in Preferences, which enables Help-Text
+- Format FAQ better
+- Filter-List for categories
+- Notification after automatic midnight checkout
+- Set working/break time for day and category
+- Show scrim at import button
+- Allow other Week-overview cycles than one week
+- Filter for weekdays to be shown in the week-view
+- Summary-Information for the different categories in day and Week view
+- Synchronize CREATE TABLE
+- Overtime
+- Mail .csv as document
+- Send the week-view and the day-view as mail
+- I would like to be able to set my standard day of work with multiple times in & out  
+- Some time I want note on the week so maybe you can do this on the sum line
+- Total current hours in the dashboard.
+
+- Preferences
+  - Work hours per weekday
+  - Start date for calculation overtime
+- Timecat: http://pdassi.de/product.php?prod_id=30127&xsearch=timecat
+
+
+--------------------------------------------------------------------------------
+DONE:
+- BUG: Tap feedback is the 'right' size
+- BUG: Touchpad: adjust menus
+- Metrix in Beta
+- Show calendar-Week
+- Notifications with sound and/or vibrate
+- Time summary on day view
+- Motivate users to review app in changelog
+- CheckIn/Out also from day-view
+- Format date label according to language settings
+- Changing category checks out an in in new category
+- Automatically add new categories to filter
+- Graph output the date as month-day vs. day-month
+- Show dashboard after close
+- Scroll WeekView per flick
+- Current CheckIn/Out Status in dashboard
+- Check In-/Out as record symbol
+- Show Summary
+- Edit currently checked in entry
+- BUG: Fr. 19. Tap shows data for 20.02.
+- BUG: Don't delete used categories
+- Prevent project deletion with preventDeleteProperty
+- Filter for one or more categories to show in Week-Overview
+- Let entries span midnight
+- Handle orientation
+- Add comment
+- Add categories
+  - insert default category
+- update every minute
+- Day Overview: mark current open entry
+- About-Box
+- Design icons
+- check other Languages
+- i18n
+- UTC to localtime conversion
+- Design of list entries
+- Edit single entries
+- mark current day with color
+- mark end-time with color when checked in
+- list element tap handler
+--------------------------------------------------------------------------------

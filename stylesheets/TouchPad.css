@@ -1,0 +1,46 @@
+
+*.touchpad {
+    width: 45% !important;
+    margin: 5px auto !important;
+}
+
+*.touchpad-btn {
+    width: 60% !important;
+    margin: 5px auto !important;
+}
+
+*.touchpad-group {
+    width: 60% !important;
+    margin: 5px auto !important;
+}
+
+*.touchpad-list {
+    width: 65% !important;
+    margin: 5px auto !important;
+}
+
+
+html {
+    background-color: black;
+}
+ 
+/* 
+body, .palm-header, .palm-menu.command-menu, .palm-menu-panel {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body {
+    max-width: 600px;
+    
+    margin-left: auto;
+    margin-right: auto;
+}
+*/
+
+.palm-dialog-box {
+    max-width: 320px;
+    left: 50%;
+    margin-left: -160px;    
+}

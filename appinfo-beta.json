@@ -1,0 +1,14 @@
+{
+	"id": 			"de.reger-clan.track-my-work-beta",
+	"version": 		"1.0.30",
+	"vendor": 		"Klaus Reger",
+	"type": 		"web",
+	"main": 		"index.html",
+	"title": 		"TrackMyWork Beta",
+	"icon": 		"icon-beta-64x64.png",
+	"removable": 	true,
+    "dockMode":     true,
+	"noWindow" : 	"true",
+	"visible":      "true",
+    "uiRevision":    2
+}

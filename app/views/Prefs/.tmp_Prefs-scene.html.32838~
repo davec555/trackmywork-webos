@@ -1,0 +1,118 @@
+<div class="palm-page-header">
+    <div class="palm-page-header-wrapper">
+        <span class="header-sliding-toggle" style="right:10px; top:10px">
+            <div id="btnHelp" class="help-img"></div>
+        </span>
+        <span class="title left" id="header"></span>
+    </div>
+</div>
+
+<div class="palm-group">
+	<div class="palm-group-title" id="stdTimeTitle"></div>
+		<div id="startStdTime" x-mojo-element="TimePicker"></div>
+		<div id="endStdTime" x-mojo-element="TimePicker"></div>
+        <div id="stdTimeDescr" class="tmw-small-label"></div>
+	</div>
+</div>
+
+
+<div class="palm-group" id="breakGrp">
+	<div class="palm-group-title" id="breakTitle"></div>
+	<div id="breakInFullVersion" class="tmw-small-label"></div>
+	<div class="palm-row single">
+		<div class="palm-row-wrapper">
+			<div id="breakCalculate" x-mojo-element="ToggleButton"></div>
+			<div id="breakCalculateLabel" class="tmw-toggle-label" x-mojo-loc=""></div>
+		</div>
+	</div>
+
+    <div id="breakCalculateDescr" class="tmw-small-label"></div>
+	<br/>		
+	<div id="breakAfterHours" x-mojo-element="IntegerPicker"></div>
+	<div id="breakAfterMinutes" x-mojo-element="IntegerPicker"></div>
+    <div id="breakAfterDescr" class="tmw-small-label"></div>
+	<div id="breakDurationInHours" x-mojo-element="IntegerPicker"></div>
+	<div id="breakDurationInMinutes" x-mojo-element="IntegerPicker"></div>
+    <div id="breakDurationDescr" class="tmw-small-label"></div>
+
+</div>
+
+
+<div class="palm-group" id="autoCheckInOutGrp">
+	<div class="palm-group-title" id="autoCheckInOutTitle"></div>
+	<div id="autoCheckInOutInFullVersion" class="tmw-small-label"></div>
+	<div class="palm-row single">
+		<div class="palm-row-wrapper">
+			<div id="autoCheckInOutMode" x-mojo-element="ListSelector"></div>
+		</div>
+        <div id="autoCheckInOutDescr" class="tmw-small-label"></div>
+	</div>
+    
+    <span id="ringtone">
+        <div class="palm-row single" xxxx-mojo-touch-feedback="delayed">
+            <div class="palm-row-wrapper">
+                <div id="ringtoneToggle" x-mojo-element="ToggleButton"></div> 
+                <div id="ringtoneLabel" class="tmw-toggle-label"> &nbsp; </div>
+            </div>
+            <div id="ringtoneDescr" class="tmw-small-label"></div>
+        </div>
+        
+        <span id="ringtoneTitle">
+            <div class="palm-row single" x-mojo-touch-feedback="delayed">
+                <div class="palm-row-wrapper">
+                    <div id="ringtoneTitleValue"></div>
+                </div>
+                <div id="ringtoneTitleDescr" class="tmw-small-label"></div>
+            </div>
+        </span>
+    </span>
+    <span id="vibrate">
+        <div class="palm-row single">
+            <div class="palm-row-wrapper">
+                 <div id="vibrateToggle" x-mojo-element="ToggleButton"></div> 
+                 <div id="vibrateLabel" class="tmw-toggle-label"></div>
+            </div>
+            <div id="vibrateDescr" class="tmw-small-label"></div>
+        </div>
+    </span>
+	<div id="nextCall" class="tmw-small-label-centered"></div>
+</div>
+
+<div class="palm-group">
+	<div class="palm-group-title" id="nightShiftTitle"></div>
+	<div class="palm-row single">
+		<div class="palm-row-wrapper">
+			<div id="nightShift" x-mojo-element="ToggleButton"></div>
+			<div id="nightShiftLabel" class="tmw-toggle-label"></div> 
+            <div id="nightShiftDescr" class="tmw-small-label"></div>
+		</div>
+	</div>
+</div>
+
+<div class="palm-group">
+	<div class="palm-group-title" id="othersTitle"></div>
+	<div class="palm-row single">
+		<div class="palm-row-wrapper">
+			<div id="startOfWeekDay" x-mojo-element="ListSelector"></div>
+            <div id="startOfWeekdayDescr" class="tmw-small-label"></div>
+		</div>
+	</div>
+	<div class="palm-row single">
+		<div class="palm-row-wrapper">
+			<div id="minuteInterval" x-mojo-element="ListSelector"></div>
+            <div id="minuteIntervalDescr" class="tmw-small-label"></div>
+		</div>
+	</div>
+    <div class="palm-row single">
+        <div class="palm-row-wrapper">
+            <div id="acceptMetrix" x-mojo-element="ToggleButton"></div>
+            <div id="acceptMetrixLabel" class="tmw-toggle-label2"></div> 
+            <div id="acceptMetrixDescr" class="tmw-small-label"></div>
+        </div>
+    </div>
+</div>
+
+<div style="margin-left:10px;margin-right:10px">
+    <div id="categoryDescr" class="tmw-small-label"></div>
+</div>
+<div id="listCategories" x-mojo-element="List"></div>

@@ -1,0 +1,74 @@
+<div class="palm-page-header">
+    <div class="palm-page-header-wrapper">
+        <span class="header-sliding-toggle" style="right:10px; top:10px">
+            <div id="btnHelp" class="__help-img"></div>
+        </span>
+        <span class="title left" id="header"></span>
+    </div>
+</div>
+
+<div class="palm-group" id="groupOptionsGeneral">
+	<div class="palm-group-title" id="optionsGeneralTitle"></div>
+    
+	<div class="first row" x-mojo-touch-feedback="delayed">
+		<div class="palm-row-wrapper">
+			<div id="timezone" x-mojo-element="ToggleButton"></div>
+			<div id="timezoneLabel" class="tmw-toggle-label" x-mojo-loc=""></div> 
+		</div>
+	</div>
+    
+	<div class="row" x-mojo-touch-feedback="delayed">
+		<div class="palm-row-wrapper">
+			<div x-mojo-element="DatePicker" 
+				 id="startDate" class="xdatepickerClass"></div>
+		</div>
+	</div>
+	
+	<div class="row" x-mojo-touch-feedback="delayed">
+		<div class="palm-row-wrapper">
+			<div x-mojo-element="DatePicker" 
+				 id="endDate" class="xdatepickerClass"></div>
+		</div>
+	</div>
+
+    <div id="categories_row" class="last row" x-mojo-touch-feedback="delayed">
+        <div class="palm-row-wrapper">
+            <div id="categoriesLabel" class="tmw-label"></div> 
+            <br/>
+            <div id="categories" class="tmw-small-label"></div>
+        </div>
+    </div>
+</div>
+
+<div class="palm-group" id="groupOptionsExport">
+	<div class="palm-group-title" id="optionsExportTitle"></div>
+    <div x-mojo-element="RadioButton" id="exportType"></div>
+	<div x-mojo-element="Button" id="exportBtn"></div>
+</div>
+
+
+<div class="palm-group" id="groupOptionsImport">
+    <div class="palm-group-title" id="optionsImportTitle"></div>
+    <div id='importHelp' x-mojo-element="Drawer">
+        <div id='importHelpContent' class="textfieldClass">
+        </div>
+    </div>
+    
+    <div x-mojo-element="RadioButton" id="importType"></div>
+
+    <div x-mojo-element="Drawer" id="importClipboard">
+        <div class="palm-row-wrapper">
+            <div x-mojo-element="TextField" id="pofTextField" 
+                 class="textFieldClass" name="pofTextField">
+            </div>
+        </div>
+    </div>
+
+    <div x-mojo-element="Button" id="importBtn"></div>
+</div>
+
+<div class="palm-group" id="groupCleanup">
+	<div class="palm-group-title" id="cleanupTitle"></div>
+	<div x-mojo-element="Button" id="cleanupBtn"></div>
+	<div x-mojo-element="Button" id="cleanupAllBtn"></div>
+</div>
