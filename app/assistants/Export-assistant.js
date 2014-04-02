@@ -12,7 +12,7 @@ function ExportAssistant()
 	  
 	this.result     = "";
 	this.separator  = ",";
-	this.useUTC     = true;
+	this.useUTC     = prefsGL.exportUTC;
     this.showHelp   = false;
     this.exportType = "clipboard";
     this.importType = "clipboard";
@@ -28,8 +28,22 @@ function ExportAssistant()
     this.categoryIdFilter = allCategoriesList.join(",");
 
 	var tmpDate = new Date();
-	this.startDate = new Date(2000,0,1);
-	this.endDate = new Date(tmpDate.getFullYear()+1, 0, 1); // now
+	if(prefsGL.exportRange == false) {
+		this.startDate = new Date(2000,0,1);
+		this.endDate = new Date(tmpDate.getFullYear()+1, 0, 1); // now
+	} else{
+		var dayOffset = Number(tmpDate.getDay() - prefsGL.startOfWeekDay);
+		if(dayOffset < 0) {
+			dayOffset += 7;
+		}
+		this.startDate = new Date();
+		this.startDate.setHours(0,0,0,0);
+		this.startDate.setDate(tmpDate.getDate()- dayOffset);
+		this.endDate = new Date(tmpDate.getFullYear(), tmpDate.getMonth(), tmpDate.getDate() + 6 - dayOffset);
+		this.endDate.setHours(23,59,59,999);
+
+	}
+	
 	
 }
 

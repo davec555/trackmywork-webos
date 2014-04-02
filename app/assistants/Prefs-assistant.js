@@ -28,6 +28,7 @@ function PrefsAssistant()
         "ringtoneTitleDescr",
         "vibrateDescr",
         "nightShiftDescr",
+        "exportRangeDescr",
         "startOfWeekdayDescr",
         "minuteIntervalDescr",
         "acceptMetrixDescr",
@@ -43,7 +44,9 @@ PrefsAssistant.prototype.setup = function()
 {
 	Mojo.Log.info("PrefsAssistant.setup");
 
+	if(!myApp.isTouchPad()) {
    	this.controller.window.PalmSystem.setWindowOrientation("up");
+  }
 
 	this.appMenuModel = {
 		visible: true,
@@ -67,6 +70,7 @@ PrefsAssistant.prototype.setup = function()
 	this.controller.get('header').update($L("Preferences"));
 	this.controller.get('stdTimeTitle').update($L("Standard day"));
 	this.controller.get('nightShiftTitle').update($L("Midnight shift"));
+	this.controller.get('exportTitle').update($L("Export"));
 	this.controller.get('othersTitle').update($L("Others"));
 	this.controller.get('breakTitle').update($L("Daily break"));
 	this.controller.get('autoCheckInOutTitle').update($L("Check in/out by notification"));
@@ -109,6 +113,26 @@ PrefsAssistant.prototype.setup = function()
     });
 	this.controller.get('nightShiftLabel').update($L("Carry time"));
 	
+	// --- export --------------------------------------------
+	this.controller.setupWidget("exportRange",
+    {
+		labelPlacement:	Mojo.Widget.labelPlacementLeft
+    },
+    this.exportRangeModel = {
+    	value: prefsGL.exportRange,
+        disabled: false
+    });
+	this.controller.get('exportRangeLabel').update(("Centre on curr week"));
+
+	this.controller.setupWidget("exportUTC",
+    {
+		labelPlacement:	Mojo.Widget.labelPlacementLeft
+    },
+    this.exportUTCModel = {
+    	value: prefsGL.exportUTC,
+        disabled: false
+    });
+	this.controller.get('exportUTCLabel').update(("Exports use UTC"));
 
 	// --- Minute interval --------------------------------------
 	this.minuteIntervalList = [];
@@ -380,6 +404,16 @@ PrefsAssistant.prototype.setup = function()
 		Mojo.Event.propertyChange,
 		this.nightShiftChangedCB.bind(this));
 
+	this.exportRangeChangedCB = this.exportRangeChangedCB.bindAsEventListener(this)
+	Mojo.Event.listen(this.controller.get('exportRange'),
+		Mojo.Event.propertyChange,
+		this.exportRangeChangedCB.bind(this));
+
+	this.exportUTCChangedCB = this.exportUTCChangedCB.bindAsEventListener(this)
+	Mojo.Event.listen(this.controller.get('exportUTC'),
+		Mojo.Event.propertyChange,
+		this.exportUTCChangedCB.bind(this));
+
     this.acceptMetrixChangedCB = this.acceptMetrixChangedCB.bindAsEventListener(this)
     Mojo.Event.listen(this.controller.get('acceptMetrix'),
         Mojo.Event.propertyChange,
@@ -490,6 +524,8 @@ PrefsAssistant.prototype.setHelp = function()
            $L("Vibrate, when a notification is issued"),
         "nightShiftDescr":  "<br/><br/>" + 
            $L("Night-shift mode: Lets start workingtime on one day and end it on the next day."),
+        "exportRangeDescr":  "<br/>" + 
+           "Export default date range: <br/>  Off: 1-Jan-2000 -> 1-Jan-{next year}<br/>  On: Beginning->End of current week",
         "startOfWeekdayDescr": 
            $L("The weekday that is displayed first in the weekview."),
         "minuteIntervalDescr": 
@@ -592,6 +628,7 @@ PrefsAssistant.prototype.activate = function(event)
             "breakGrp",
             "autoCheckInOutGrp",
             "nightShiftGrp",
+            "exportsGrp",
             "othersGrp",
             "categoriesGrp"
         ];
@@ -603,7 +640,6 @@ PrefsAssistant.prototype.activate = function(event)
         
         this.controller.get("listCategories").addClassName("touchpad-list");
     }
-
 }
 
 
@@ -643,6 +679,14 @@ PrefsAssistant.prototype.cleanup = function(event) {
 	Mojo.Event.stopListening(this.controller.get('nightShift'),
 		Mojo.Event.propertyChange,
 		this.nightShiftChangedCB);
+
+	Mojo.Event.stopListening(this.controller.get('exportRange'),
+		Mojo.Event.propertyChange,
+		this.exportRangeChangedCB);
+
+	Mojo.Event.stopListening(this.controller.get('exportUTC'),
+		Mojo.Event.propertyChange,
+		this.exportUTCChangedCB);
 
     Mojo.Event.stopListening(this.controller.get('autoCheckInOutMode'),
         Mojo.Event.propertyChange,
@@ -705,6 +749,24 @@ PrefsAssistant.prototype.nightShiftChangedCB = function(event)
         Object.toJSON(event));
 
     prefsGL.nightShift = event.value;
+}
+
+PrefsAssistant.prototype.exportRangeChangedCB = function(event)
+{
+    // log the text field value when the value changes 
+    Mojo.Log.info("PrefsAssistant.exportRangeChangedCB:"+
+        Object.toJSON(event));
+
+    prefsGL.exportRange = event.value;
+}
+
+PrefsAssistant.prototype.exportUTCChangedCB = function(event)
+{
+    // log the text field value when the value changes 
+    Mojo.Log.info("PrefsAssistant.exportUTCChangedCB:"+
+        Object.toJSON(event));
+
+    prefsGL.exportUTC = event.value;
 }
 
 PrefsAssistant.prototype.acceptMetrixChangedCB = function(event)

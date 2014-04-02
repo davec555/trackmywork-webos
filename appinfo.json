@@ -1,0 +1,14 @@
+{
+	"id": 		"com.lester-software.track-my-work",
+	"version": 	"1.0.31",
+	"vendor": 	"Klaus Reger",
+	"type": 	"web",
+	"main": 	"index.html",
+	"title": 	"TrackMyWork",
+	"icon": 	"icon-64x64.png",
+	"removable": 	"true",
+    "dockMode":     true,
+	"noWindow" : 	"true",
+	"visible": 	"true",
+    "uiRevision":   2
+}

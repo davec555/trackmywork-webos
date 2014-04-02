@@ -27,6 +27,8 @@ var prefsGL =
 	defaultCategoryId:   	1,
 	categoriesFilter:     	"1",
 	nightShift:				false,
+	exportRange:			false,
+	exportUTC:				false,
     
 	autoCheckInOutMode:     "NONE",
     sound:                  false,
@@ -91,6 +93,8 @@ tmwPrefs.prototype.putCookie = function()
 		categoriesFilter:		prefsGL.categoriesFilter,
 		
 		nightShift:				prefsGL.nightShift,
+		exportRange:				prefsGL.exportRange,
+		exportUTC:					prefsGL.exportUTC,
 		autoCheckInOutMode:		prefsGL.autoCheckInOutMode,
         sound:                  prefsGL.sound,
         soundFilename:          prefsGL.soundFilename,
@@ -138,6 +142,8 @@ tmwPrefs.prototype.getCookie = function()
 	prefsGL.defaultCategoryId      = 1;
 	prefsGL.categoriesFilter       = "1";
 	prefsGL.nightShift             = false;
+	prefsGL.exportRange             = false;
+	prefsGL.exportUTC								= false;
     prefsGL.minuteInterval         = 5;
 	prefsGL.workdays               = 5;
 	prefsGL.autoCheckInOutMode     = "NONE";
@@ -242,6 +248,16 @@ tmwPrefs.prototype.getCookie = function()
 	if(tmpPrefs.nightShift != undefined)
 	{
 		prefsGL.nightShift = tmpPrefs.nightShift;
+	}
+	
+	if(tmpPrefs.exportRange != undefined)
+	{
+		prefsGL.exportRange = tmpPrefs.exportRange;
+	}
+
+	if(tmpPrefs.exportUTC != undefined)
+	{
+		prefsGL.exportUTC = tmpPrefs.exportUTC;
 	}
 	
 	if(tmpPrefs.autoCheckInOutMode != undefined)
