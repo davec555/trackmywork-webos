@@ -8,24 +8,24 @@
 
 function ExportAssistant() 
 {
-    Mojo.Log.info("ExportAssistant.activate");  
+	Mojo.Log.info("ExportAssistant.activate");  
 	  
 	this.result     = "";
 	this.separator  = ",";
 	this.useUTC     = prefsGL.exportUTC;
-    this.showHelp   = false;
-    this.exportType = "clipboard";
-    this.importType = "clipboard";
+	this.exportForm = true;//prefsGL.exportForm;
+	this.showHelp   = false;
+	this.exportType = "clipboard";
+	this.importType = "clipboard";
     
-    // Select all categories
-    var allCategoriesList = [];
-    for (var i = 0; i < prefsGL.categoriesList.length; i++) {
-        var category = prefsGL.categoriesList[i];
-        
-        allCategoriesList.push(category.id)
-    }
+	// Select all categories
+	var allCategoriesList = [];
+	for (var i = 0; i < prefsGL.categoriesList.length; i++) {
+		var category = prefsGL.categoriesList[i];
+		allCategoriesList.push(category.id)
+	}
     
-    this.categoryIdFilter = allCategoriesList.join(",");
+	this.categoryIdFilter = allCategoriesList.join(",");
 
 	var tmpDate = new Date();
 	if(prefsGL.exportRange == false) {
@@ -205,6 +205,21 @@ ExportAssistant.prototype.setup = function() {
 	
 	this.controller.get('timezoneLabel').update($L("Timezone"));
 
+	// --- exportForm --------------------------------------------
+	this.controller.setupWidget("exportForm",
+    {
+	    trueLabel: "Form",
+        falseLabel: "CSV" 
+    },
+    this.exportFormModel = {
+    	value: this.exportForm,
+        disabled: false
+    });
+	
+	this.controller.get('exportFormLabel').update("Export Type");
+
+
+
     this.controller.get('categoriesLabel').update($L("Categories"));
     this.cbSetCategoriesFilter(this.categoryIdFilter);
 
@@ -217,6 +232,10 @@ ExportAssistant.prototype.setup = function() {
 	Mojo.Event.listen(this.controller.get('timezone'),
 		              Mojo.Event.propertyChange, 
 		              this.cbTimezone.bind(this))
+
+	Mojo.Event.listen(this.controller.get('exportForm'),
+		              Mojo.Event.propertyChange, 
+		              this.cbExportForm.bind(this))
 
 	Mojo.Event.listen(this.controller.get('startDate'),
 					  Mojo.Event.propertyChange, 
@@ -264,7 +283,9 @@ ExportAssistant.prototype.activate = function(event)
     Mojo.Log.info("ExportAssistant.activate");  
       
     this.projectsDump = "";
-    this.timesDump = "";  
+    this.timesDump = "";
+    this.dumpStartDateStr = "";
+    this.dumpEndDateStr = "";
 
     this.controller.modelChanged(this.importTypeModel, this);
     this.controller.modelChanged(this.exportTypeModel, this);
@@ -331,13 +352,15 @@ ExportAssistant.prototype.handleCommand = function(event)
 
 
 ExportAssistant.prototype.cbExportBtn = function(event){
-    Mojo.Log.info("TimeViewAssistant.cbExportBtn");
+	Mojo.Log.info("TimeViewAssistant.cbExportBtn");
 
-    this.doExportProjects = this.doExportProjects.bind(this);
-    this.doExportProjects(this.cbExportProjectsDone.bind(this));
+	if(this.exportForm != true){
+		this.doExportProjects = this.doExportProjects.bind(this);
+		this.doExportProjects(this.cbExportProjectsDone.bind(this));
+  }
 
-    this.doExportTimes = this.doExportTimes.bind(this);
-    this.doExportTimes(this.cbExportTimesDone.bind(this));
+	this.doExportTimes = this.doExportTimes.bind(this);
+  this.doExportTimes(this.cbExportTimesDone.bind(this));
 }
 
 
@@ -352,9 +375,10 @@ ExportAssistant.prototype.cbExportTypeChanged = function(event) {
 ExportAssistant.prototype.exportClipboard = function(event){
 	Mojo.Log.info("TimeViewAssistant.exportClipboard");
 
-	this.doExportProjects = this.doExportProjects.bind(this);
-	this.doExportProjects(this.cbExportProjectsDone.bind(this));
-
+	if(this.exportForm != true){
+		this.doExportProjects = this.doExportProjects.bind(this);
+		this.doExportProjects(this.cbExportProjectsDone.bind(this));
+	}
 	this.doExportTimes = this.doExportTimes.bind(this);
 	this.doExportTimes(this.cbExportTimesDone.bind(this));
 }
@@ -363,9 +387,10 @@ ExportAssistant.prototype.exportClipboard = function(event){
 
 ExportAssistant.prototype.exportMail = function(event){
 	Mojo.Log.info("TimeViewAssistant.exportMail");
-
-	this.doExportProjects = this.doExportProjects.bind(this);
-	this.doExportProjects(this.cbExportProjectsDone.bind(this));
+	if(this.exportForm != true){
+		this.doExportProjects = this.doExportProjects.bind(this);
+		this.doExportProjects(this.cbExportProjectsDone.bind(this));
+	}
 
 	this.doExportTimes = this.doExportTimes.bind(this);
 	this.doExportTimes(this.cbExportTimesDone.bind(this));
@@ -924,6 +949,12 @@ ExportAssistant.prototype.cbTimezone = function(event){
 	this.useUTC = event.value;
 }
 
+ExportAssistant.prototype.cbExportForm = function(event){
+	Mojo.Log.info("TimeViewAssistant.cbExportForm");
+	
+	this.exportForm = event.value;
+	this.timesDump = "";  // clear timesDump as its different between export types and needs to be recalculated
+}
 
 ExportAssistant.prototype.doExportProjects = function(callback){
 	Mojo.Log.info("TimeViewAssistant.doExportProjects");
@@ -993,14 +1024,16 @@ ExportAssistant.prototype.doExportTimes = function(callback)
 	{			
 		var sql =
 			("SELECT t.i_tmw_projects_id,"+
+			 "       p.v_name," +
 			 "       DATETIME(t.t_Start"+useUTC+") AS t_Start,"+
 			 "       DATETIME(t.t_End"+useUTC+")   AS t_End," +
 			 "       t.v_note" +
 			 "  FROM tmw_times t" + 
+			 "	INNER JOIN tmw_projects p ON t.i_tmw_projects_id=p.i_tmw_projects_id" +
 			 " WHERE DATETIME(t.t_start"+useUTC+") >= '" + startDateStr + "'" +
 			 "   AND DATETIME(t.t_start"+useUTC+") <  '" + endDateStr + "'" +
              "   AND t.i_tmw_projects_id IN (" + categoryIdFilter + ")" +
-			 " ORDER BY 2;");
+			 " ORDER BY 3;");
 		Mojo.Log.info("SELECT: %j", sql); 
 
   	  	tx.executeSql(sql, 
@@ -1008,44 +1041,79 @@ ExportAssistant.prototype.doExportTimes = function(callback)
 			 function(tx, result)
 			 {
 			 	Mojo.Log.info("Result:" + Object.toJSON(result.rows));
-				dump = $L("'Type'") + separator +
-					$L("'CategoryId'") + separator +
-					$L("'Start'") + separator +
-					$L("'End'") + separator +
-					$L("'Note'") + "\n";
+			 	if(this.exportForm === false){
+					dump = $L("'Type'") + separator +
+						$L("'CategoryId'") + separator +
+						$L("'Start'") + separator +
+						$L("'End'") + separator +
+						$L("'Note'") + "\n";
+				}
 					
+				var oldDate;
+				var total = 0;
+				var grandTotal = 0;
 				for (var i = 0; i < result.rows.length; i++) {
 					var row = result.rows.item(i);
 					
 					var tEnd  = row['t_End'];
 					var vNote = row['v_note'];
 				
+					tEndRaw = tEnd;
+					vNoteRaw = (vNote === null? "": vNote);
 					tEnd = (tEnd === null? "NULL": "'" + tEnd + "'");
 					vNote = (vNote === null? "''": "'" + vNote + "'");
 				
-					dump = dump +
-						"'T'" + separator +
-						escapeData(row['i_tmw_projects_id']) + separator + 
-						"'" + escapeData(row['t_Start']) + "'" + separator + 
-						escapeData(tEnd) + separator + 
-						escapeData(vNote) + 
-						"\n";
+					if(this.exportForm === false){
+						dump = dump +
+							"'T'" + separator +
+							escapeData(row['i_tmw_projects_id']) + separator + 
+							"'" + escapeData(row['t_Start']) + "'" + separator + 
+							escapeData(tEnd) + separator + 
+							escapeData(vNote) + 
+							"\n";
+					} else {
+						var cc = new Date(escapeData(row['t_Start']));
+						var c = new Date(escapeData(tEndRaw));
+						var duration = timeDifference(cc, c).split(",");
+						if(oldDate != cc.toDateString()) {
+							oldDate = cc.toDateString();
+							if(total && total >0){
+								var totalTime = [parseInt(total/60),total-(parseInt(total/60)*60)];
+								dump = dump + "                                                               Total: [" + pad(totalTime[0],2," ") + "h " + pad(totalTime[1],2," ") + "m]\n";
+							}
+							dump = dump + "----------" + oldDate + "----------\n";
+							grandTotal += total;
+							total = 0;
+						}
+						total+=parseInt(duration[0]*60)+parseInt(duration[1]);
+						dump = dump + pad(escapeData(row['v_name']),28," ") + ": " + escapeData(row['t_Start']) + " " + escapeData(tEndRaw) + " (" + pad(duration[0],2," ") + "h " + pad(duration[1],2," ") + "m) " + escapeData(vNoteRaw) + "\n";
+					}
 				}
-				
-				callback(dump);
-			 },
+				if(this.exportForm === true){
+					if(total && total >0){
+						grandTotal += total;
+						var totalTime = [parseInt(total/60),total-(parseInt(total/60)*60)];
+						var grandTotalTime = [parseInt(grandTotal/60),grandTotal-(parseInt(grandTotal/60)*60)];
+						dump = dump + "                                                               Total: [" + pad(totalTime[0],2," ") + "h " + pad(totalTime[1],2," ") + "m]\n\n";
+						dump = dump + "                                                         Grand Total: [" + pad(grandTotalTime[0],2," ") + "h " + pad(grandTotalTime[1],2," ") + "m]\n";
+					}				
+				}
+				callback(dump,startDateStr,endDateStr);
+			 }.bind(this),
 			 function(tx, error)
 			 {
 				Mojo.Log.error(error.message);
 			 }.bind(this)
 		);
-	});		
+	}.bind(this));		
 }
 
 
-ExportAssistant.prototype.cbExportTimesDone = function(dump){
+ExportAssistant.prototype.cbExportTimesDone = function(dump,startDateStr,endDateStr){
 	Mojo.Log.info("TimeViewAssistant.cbExportTimesDone");
 	this.timesDump = dump;
+	this.dumpStartDateStr = startDateStr;
+	this.dumpEndDateStr = endDateStr;
 	this.cbExportDone();
 	
 }
@@ -1061,11 +1129,16 @@ ExportAssistant.prototype.cbExportProjectsDone = function(dump){
 ExportAssistant.prototype.cbExportDone = function(dump){
 	Mojo.Log.info("TimeViewAssistant.cbExportDone");
 
-    if(this.projectsDump == "" ||
-	   this.timesDump == "")
-	{
-		return;  	
+	if(this.exportForm === false){
+    if(this.projectsDump == "" || this.timesDump == ""){
+			return;  	
   	}
+  } else {
+  	this.projectsDump = "";
+  	if(this.timesDump == ""){
+  		return;
+  	}
+  }
 	
 	if(this.exportType == "clipboard")
 	{
@@ -1093,7 +1166,8 @@ ExportAssistant.prototype.cbExportDone = function(dump){
 	{
 		
 		var text = this.projectsDump + this.timesDump;
-		text = text.replace(/\n/g, "<BR/>");
+		//text = text.replace(/\n/g, "<BR/>");
+		text = "<pre>" + text + "</pre>";
 		
 		this.controller.get('exportBtn').mojo.deactivate();
 	
@@ -1104,7 +1178,8 @@ ExportAssistant.prototype.cbExportDone = function(dump){
 			{
 				id: 	'com.palm.app.email',
 				params: {
-					summary: 	$L("TrackMyWork - Data dump"),
+					//summary: 	$L("TrackMyWork - Data dump"),
+					summary: 	"TrackMyWork - " + this.dumpStartDateStr + " to " + this.dumpEndDateStr,
 					text: 		text
 				}
 			}
@@ -1149,6 +1224,10 @@ ExportAssistant.prototype.deactivate = function(event) {
 		Mojo.Event.propertyChange, 
 		this.cbTimezone)
 
+	Mojo.Event.stopListening(this.controller.get('exportForm'),
+		Mojo.Event.propertyChange, 
+		this.cbExportForm)
+
 	Mojo.Event.stopListening(this.controller.get('importBtn'),
 		Mojo.Event.tap, 
 		this.cbImportBtn)
@@ -1162,3 +1241,46 @@ ExportAssistant.prototype.cleanup = function(event) {
 	/* this function should do any cleanup needed before the scene is destroyed as 
 	   a result of being popped off the scene stack */
 };
+
+function timeDifference(d, dd) {
+	var minute = 60 * 1000,
+	hour = minute * 60,
+	day = hour * 24,
+	month = day * 30,
+	ms = Math.abs(d - dd);
+
+	var months = parseInt(ms / month, 10);
+
+	ms -= months * month;
+
+	var days = parseInt(ms / day, 10);
+
+	ms -= days * day;
+
+	var hours = parseInt(ms / hour, 10);
+
+	ms -= hours * hour;
+	var minutes = parseInt(ms / minute, 10);
+
+	if(days>0){
+		hours += days*24;
+	}
+	/*return (
+		//months + " months",
+		//days + " days",
+		"(" +pad(hours,2," ") + "h" + " " +
+		pad(minutes,2," ") + "m)"
+	)*/
+	return [
+		//months + " months",
+		//days + " days",
+		hours,
+		minutes
+	].join(",");
+};
+
+function pad(n, width, z) {
+  z = z || '0';
+  n = n + '';
+  return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+}
